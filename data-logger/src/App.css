@@ -14,20 +14,19 @@ nav {
 }
 
 .calendar-container {
-    position: relative;
-    padding-left: 20%;
+    padding: 30%;
     padding-top: 5%;
     margin: 2rem;
     display: flex;
     flex-wrap: wrap;
-    height: 24rem;
-    width: 48rem;
+    height: 48rem;
+    width: 63rem;
 }
 
 .calendar-boxes {
     border: 1px solid black;
-    height: 6rem;
-    width: 6rem;
+    height: 12rem;
+    width: 9rem;
 }
 
 .activity-container {
@@ -38,3 +37,6 @@ nav {
     font-size: 1.25em;
 }
 
+.loading {
+    text-align: center;
+}

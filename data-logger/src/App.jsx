@@ -13,7 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/monthly-view" element={<MonthlyView />} />
-            <Route path="/monthly-view/:id" element={<SingleView />} />
+            <Route path="/monthly-view/:date" element={<SingleView />} />
           </Routes>
         </BrowserRouter>
       </header>

@@ -1,35 +1,41 @@
-import Answer from "./Answer";
+import { useNavigate } from "react-router-dom";
+import CalendarInfo from "./CalendarInfo";
 
-const Calendar = ({ date, monthDay, entries, entriesLength }) => {
-  if (entries.length < 1) {
-    return false;
-  }
-  console.log("api call entries from airtable: ", entries);
+function Calendar ({ date, monthDay, entries, entriesLength }) {
 
-  const answer = [];
+  // console.log("check api call: ", entries);
+  const navigate = useNavigate();
+  const filteredEntries = [];
 
   for (let i = 0; i < entriesLength; i++) {
     if (entries[i]?.fields.date === date) {
-      answer.push(entries[i]?.fields?.ticker);
+      filteredEntries.push(entries[i]?.fields);
     }
   }
 
-  console.log("answer", answer);
+  // console.log("filteredEntries", filteredEntries);
 
-  const MakeAnswer = () => {
-    const answerArr = [];
-    for (let j = 0; j < answer.length; j++) {
-      answerArr.push(<Answer ticker={answer[j]} />);
+  const RenderFiltered = () => {
+    const filteredEntriesArr = [];
+    for (let j = 0; j < filteredEntries.length; j++) {
+      filteredEntriesArr.push(
+        <CalendarInfo
+          index={j + 1}
+          ticker={filteredEntries[j].ticker}
+          trade={filteredEntries[j].trade}
+          key={j}
+        />
+      );
     }
-    return answerArr;
+    return filteredEntriesArr;
   };
 
   return (
-    <section className="calendar-boxes">
-      <div className={date}>{monthDay}</div>
-      <MakeAnswer />
-      {/* <div className="trade">{trade}</div>
-          <div className="price">{price}</div> */}
+    <section className="calendar-boxes" onClick={() => navigate(`/monthly-view/${date}`)}>
+      <div className={date}>
+        {monthDay}
+      </div>
+      <RenderFiltered />
     </section>
   );
 };
