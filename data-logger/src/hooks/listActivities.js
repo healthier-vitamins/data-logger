@@ -24,7 +24,7 @@ const listRecords = () => {
           // If there are more records, `page` will get called again.
           // If there are no more records, `done` will get called.
           fetchNextPage();
-        },
+        }
         // function done(err) {
         //   if (err) {
         //     console.error(err);
@@ -32,7 +32,6 @@ const listRecords = () => {
         //   }
         // }
       );
-      
   }, []);
 };
 
