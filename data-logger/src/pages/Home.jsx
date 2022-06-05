@@ -3,7 +3,7 @@ import listActivities from "../hooks/listActivities";
 import NavBar from "../components/NavBar";
 import createRecord from "../functions/createRecord";
 
-function Home({setCreatedNewRecord}) {
+function Home() {
   listActivities();
 
   const [inputs, setInputs] = useState({
@@ -33,14 +33,13 @@ function Home({setCreatedNewRecord}) {
       date: "",
       time: "",
     });
-    setCreatedNewRecord((prevState) => prevState + 1)
   };
 
   return (
     <>
       <NavBar />
-      <h1>Enter trade activity</h1>
       <div className="activity-container">
+        <h1>Enter Trade Activity</h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <fieldset>
             <label htmlFor="ticker">Ticker: </label>
@@ -48,7 +47,7 @@ function Home({setCreatedNewRecord}) {
               id="ticker"
               name="ticker"
               type="text"
-              placeholder="ticker"
+              placeholder="Ticker"
               value={inputs.ticker}
               onChange={handleChange}
             ></input>
@@ -58,7 +57,7 @@ function Home({setCreatedNewRecord}) {
               id="price"
               name="price"
               type="number"
-              placeholder="price"
+              placeholder="Price"
               value={inputs.price}
               onChange={handleChange}
             ></input>
@@ -79,7 +78,7 @@ function Home({setCreatedNewRecord}) {
               id="date"
               name="date"
               type="date"
-              placeholder="date"
+              placeholder="Date"
               value={inputs.date}
               onChange={handleChange}
             ></input>

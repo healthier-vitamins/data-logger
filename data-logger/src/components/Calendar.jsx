@@ -1,70 +1,37 @@
+import Answer from "./Answer";
 
-import { useState } from "react";
-import Entry from "./Entry";
+const Calendar = ({ date, monthDay, entries, entriesLength }) => {
+  if (entries.length < 1) {
+    return false;
+  }
+  console.log("api call entries from airtable: ", entries);
 
-function Calendar({ date, monthDay, entries}) {
+  const answer = [];
 
-  const [values, setValues] = useState({
-    ticker: ""
-  })
+  for (let i = 0; i < entriesLength; i++) {
+    if (entries[i]?.fields.date === date) {
+      answer.push(entries[i]?.fields?.ticker);
+    }
+  }
 
-console.log("entrires: ", entries)
-console.log("dates prop: ", date)
- 
+  console.log("answer", answer);
 
-  // for (let i = 0; i < entries?.records.length; i++) {
-  //   if (entries?.records?.[i]?.fields.date === date) {
-  //     setValues({
-  //       ticker: entries?.records?.[i]?.fields?.ticker
-  //     }) 
-  //     console.log("assigned ticker:", values.ticker);
-  //   } 
-  //   else {
-  //     setValues({
-  //       ticker: ""
-  //     }) 
-  //   }
-  // }
-
-
-
-  // console.log("daet: ", entries?.records?.[1]?.fields.date);
+  const MakeAnswer = () => {
+    const answerArr = [];
+    for (let j = 0; j < answer.length; j++) {
+      answerArr.push(<Answer ticker={answer[j]} />);
+    }
+    return answerArr;
+  };
 
   return (
-    <section className={date}>
-      <div>{monthDay}</div>
-{/* 
-      {entries?.records?.forEach(element => {
-        if (element?.fields?.date === date) {
-          setValues({
-            ...values,
-            ticker: element?.fields?.ticker
-          })
-        }
-        else {
-          setValues({
-            ...values,
-            ticker: ""
-          })
-        }
-      })} */}
-
-
-      <Entry
-        // ticker={values.ticker}
-        // trade={trade}
-        // price={price}
-      />
+    <section className="calendar-boxes">
+      <div className={date}>{monthDay}</div>
+      <MakeAnswer />
+      {/* <div className="trade">{trade}</div>
+          <div className="price">{price}</div> */}
     </section>
   );
+};
 
-  // <iframe
-  //   className="airtable-embed"
-  //   src="https://airtable.com/embed/shrieSVQL8JjTMn9N?backgroundColor=blue"
-  //   frameBorder="0"
-  //   width="800rem"
-  //   height="550rem"
-  //   style={{ background: "transparent", border: "1px solid #ccc" }}
-  // ></iframe>
-}
 export default Calendar;

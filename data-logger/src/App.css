@@ -1,0 +1,40 @@
+nav a {
+    color: black;
+    display: inline-block;
+    padding: 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+nav {
+    background: cornflowerblue;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.calendar-container {
+    position: relative;
+    padding-left: 20%;
+    padding-top: 5%;
+    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    height: 24rem;
+    width: 48rem;
+}
+
+.calendar-boxes {
+    border: 1px solid black;
+    height: 6rem;
+    width: 6rem;
+}
+
+.activity-container {
+    max-width: 70ch;
+    padding: 3em 1em;
+    margin: auto;
+    line-height: 1.75;
+    font-size: 1.25em;
+}
+
