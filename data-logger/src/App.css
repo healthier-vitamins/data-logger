@@ -40,3 +40,7 @@ nav {
 .loading {
     text-align: center;
 }
+
+.each-trade-activity {
+    margin: 3rem 0;
+}
