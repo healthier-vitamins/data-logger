@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import CalendarInfo from "./CalendarInfo";
 
-function Calendar ({ date, monthDay, entries, entriesLength }) {
-
+function Calendar({ date, monthDay, entries, entriesLength }) {
   // console.log("check api call: ", entries);
   const navigate = useNavigate();
   const filteredEntries = [];
@@ -31,13 +30,16 @@ function Calendar ({ date, monthDay, entries, entriesLength }) {
   };
 
   return (
-    <section className="calendar-boxes" onClick={() => navigate(`/monthly-view/${date}`)}>
-      <div className={date}>
+    <section
+      className="calendar-boxes"
+      onClick={() => navigate(`/monthly-view/${date}`)}
+    >
+      <div id="monthly-days" className={date}>
         {monthDay}
       </div>
       <RenderFiltered />
     </section>
   );
-};
+}
 
 export default Calendar;

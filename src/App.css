@@ -44,3 +44,7 @@ nav {
 .each-trade-activity {
     margin: 3rem 0;
 }
+
+#monthly-day {
+    cursor: pointer;
+}
