@@ -27,6 +27,7 @@ nav {
     border: 1px solid black;
     height: 12rem;
     width: 9rem;
+    cursor: pointer;
 }
 
 .activity-container {
@@ -43,8 +44,4 @@ nav {
 
 .each-trade-activity {
     margin: 3rem 0;
-}
-
-#monthly-day {
-    cursor: pointer;
 }

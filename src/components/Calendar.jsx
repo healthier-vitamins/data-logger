@@ -34,9 +34,7 @@ function Calendar({ date, monthDay, entries, entriesLength }) {
       className="calendar-boxes"
       onClick={() => navigate(`/monthly-view/${date}`)}
     >
-      <div id="monthly-days" className={date}>
-        {monthDay}
-      </div>
+      <div className={date}>{monthDay}</div>
       <RenderFiltered />
     </section>
   );
